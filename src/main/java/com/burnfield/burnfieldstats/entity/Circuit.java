@@ -1,12 +1,18 @@
 package com.burnfield.burnfieldstats.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 import java.math.BigInteger;
 
 @Entity
 @Table(name = "CIRCUITS")
-public class Circuits {
+@RequiredArgsConstructor
+@Getter
+public class Circuit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +22,6 @@ public class Circuits {
     private String circuitRef;
     @Column(name = "NAME")
     private String name;
-
     @Column(name = "LOCATION")
     private String location;
     @Column(name = "COUNTRY")
@@ -29,9 +34,5 @@ public class Circuits {
     private String alt;
     @Column(name = "URL")
     private String url;
-
-
-
-
 
 }

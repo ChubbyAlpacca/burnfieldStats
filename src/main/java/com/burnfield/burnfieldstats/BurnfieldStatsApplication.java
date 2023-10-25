@@ -11,7 +11,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BurnfieldStatsApplication {
 
     public static void main(String[] args) {
-        log.info(Database.databaseChangeLogLockTableName);
         SpringApplication.run(BurnfieldStatsApplication.class, args);
     }
 

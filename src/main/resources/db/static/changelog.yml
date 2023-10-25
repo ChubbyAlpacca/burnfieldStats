@@ -4,8 +4,21 @@ databaseChangeLog:
       author: Cam
       runAlways: true
       changes:
-        - delete :
-            tableName: CIRCUITS
         - loadData:
             file: db/static/circuits.csv
             tableName: CIRCUITS
+        - loadData:
+            file: db/static/constructors.csv
+            tableName: CONSTRUCTORS
+        - loadData:
+            file: db/static/drivers.csv
+            tableName: DRIVERS
+        - loadData:
+            file: db/static/seasons.csv
+            tableName: SEASONS
+        - loadData:
+            file: db/static/status.csv
+            tableName: STATUS
+        - loadData:
+            file: db/static/races.csv
+            tableName: RACES
