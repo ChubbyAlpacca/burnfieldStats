@@ -1,4 +1,4 @@
-package com.burnfield.burnfieldstats.controller.utility;
+package com.burnfield.burnfieldstats.controller.circuits;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,12 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Slf4j
 @RequiredArgsConstructor
 @Controller
-public class pingController {
+public class CircuitController {
 
-    @GetMapping("/ping")
+    @GetMapping("/circuits")
     public ResponseEntity<String> getPing() {
-        log.info("Ping is alive!");
-        return new ResponseEntity<>("hello", HttpStatus.I_AM_A_TEAPOT);
+        log.info("circuits is alive!");
+        return new ResponseEntity<>("circuits", HttpStatus.I_AM_A_TEAPOT);
     }
-
 }

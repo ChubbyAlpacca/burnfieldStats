@@ -1,6 +1,11 @@
-#databaseChangeLog:
-#  - changeSet :
-#      id : 0.0.1
-#      author : Cam McGifford
-#  - include:
-#      file:
+databaseChangeLog:
+  - changeSet:
+      id: static
+      author: Cam
+      runAlways: true
+      changes:
+        - delete :
+            tableName: CIRCUITS
+        - loadData:
+            file: db/static/circuits.csv
+            tableName: CIRCUITS
