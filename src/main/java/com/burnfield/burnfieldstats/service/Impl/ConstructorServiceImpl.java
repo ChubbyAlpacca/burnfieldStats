@@ -3,6 +3,7 @@ package com.burnfield.burnfieldstats.service.Impl;
 import com.burnfield.burnfieldstats.controller.constructors.dto.ConstructorResponse;
 import com.burnfield.burnfieldstats.controller.constructors.dto.ConstructorsResponse;
 import com.burnfield.burnfieldstats.entity.Constructor;
+import com.burnfield.burnfieldstats.entity.Races;
 import com.burnfield.burnfieldstats.exception.BurnfieldException;
 import com.burnfield.burnfieldstats.repository.ConstructorRepository;
 import com.burnfield.burnfieldstats.repository.RaceResultsRepository;
@@ -43,23 +44,28 @@ public class ConstructorServiceImpl implements ConstructorService {
     }
 
     @Override
-    public ConstructorsResponse getAllConstructors( int page, int limit) {
+    public ConstructorsResponse getAllConstructors(int page, int limit) {
         Pageable pageable = PageRequest.of(page, limit);
         var constructorList = constructorRepository.findAll(pageable);
-        var metaData = constructorsMetaDataBuilder(Optional.of(page), Optional.of(limit), Optional.of(constructorList.getSize()), Optional.empty(),Optional.empty());
+        var metaData = constructorsMetaDataBuilder(Optional.of(page), Optional.of(limit), Optional.of(constructorList.getSize()), Optional.empty(), Optional.empty());
         return mapToConstructorsResponsePaginated(constructorList, metaData);
     }
 
     @Override
-    public ConstructorsResponse getConstructorsByRoundAndYear(int round, int year) {
+    public ConstructorsResponse getConstructorsByRoundAndYear(Optional<Integer> round, int year) {
         List<Constructor> constructorList = new ArrayList<>();
-        var race = racesRepository.getRacesByRoundAndRaceYear(round, year);
-        var results = resultsRepository.findRaceResultsByRaceId(race.getRaceId());
-        results.forEach(result -> {
-            var constructor = constructorRepository.getReferenceById(BigInteger.valueOf(result.getConstructorId()));
-            constructorList.add(constructor);
-        });
-        return mapToConstructorsResponse(constructorList, constructorsMetaDataBuilder(Optional.empty(), Optional.empty(), Optional.of(constructorList.size()), Optional.of(year), Optional.of(round)));
+        var race = racesRepository.getRacesByRoundAndRaceYear(round.orElse(1), year);
+        if (null == race) {
+            //TODO REVIEW THIS AS EXCEPTION NOT RETURNED TO CLIENT SIDE
+            throw new BurnfieldException(String.format("No race data found for year %s and round %s", year, round), HttpStatus.BAD_REQUEST);
+        } else {
+            var results = resultsRepository.findRaceResultsByRaceId(race.getRaceId());
+            results.forEach(result -> {
+                var constructor = constructorRepository.getReferenceById(BigInteger.valueOf(result.getConstructorId()));
+                constructorList.add(constructor);
+            });
+            return mapToConstructorsResponse(constructorList, constructorsMetaDataBuilder(Optional.empty(), Optional.empty(), Optional.of(constructorList.size()), Optional.of(year), round));
+        }
     }
 
     @Override

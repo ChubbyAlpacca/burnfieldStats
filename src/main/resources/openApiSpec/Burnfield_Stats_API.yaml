@@ -24,7 +24,5 @@ paths:
             application/json:
               schema:
                 $ref: "./Constructors_API.yaml#/components/schemas/ConstructorResponse"
-                example:
-                  getConstructorsResponse:
-                    $ref: "./Constructors_API.yaml#/components/schemas/ConstructorResponse"
+
 

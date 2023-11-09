@@ -1,5 +1,6 @@
 components:
   schemas:
+
     ConstructorsMetaData:
       type: object
       properties:
@@ -39,6 +40,12 @@ components:
           type: string
           example: "https://www.wikipedia.com/mclaren"
           description: "Link to the wikipedia page for the constructor"
+
+    ConstructorsResponse:
+      type: object
+      properties:
+        metaData:
+          $ref: "./components/schema/ConstructorsMetaData"
 
 
 

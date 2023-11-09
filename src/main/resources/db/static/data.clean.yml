@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: data.clean
+      author: cam
+      runAlways: true
+      changes:
+        - delete:
+            tableName: RACE_RESULTS
+        - delete:
+            tableName: RACES
+        - delete:
+            tableName: STATUS
+        - delete:
+            tableName: SEASONS
+        - delete:
+            tableName: DRIVERS
+        - delete:
+            tableName: CONSTRUCTORS
+        - delete:
+            tableName: CIRCUITS

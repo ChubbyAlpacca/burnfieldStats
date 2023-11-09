@@ -24,4 +24,5 @@ springdoc:
     tags-sorter: alpha
     doc-expansion: none
   packages-to-scan: com.burnfield.burnfieldstats.controller
+  packages-to-exclude: [com.burnfield.burnfieldstats.entity, com.burnfield.burnfieldstats.repository]
 
