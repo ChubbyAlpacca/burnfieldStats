@@ -3,6 +3,7 @@ package com.burnfield.burnfieldstats.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigInteger;
 
@@ -10,6 +11,7 @@ import java.math.BigInteger;
 @Table(name = "CONSTRUCTORS")
 @RequiredArgsConstructor
 @Getter
+@Setter
 public class Constructor {
 
     @Id

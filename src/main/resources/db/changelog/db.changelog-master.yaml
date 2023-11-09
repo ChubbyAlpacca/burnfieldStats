@@ -1,7 +1,5 @@
 databaseChangeLog:
   - includeAll:
       path: db/tables
-#  - include:
-#      file: db/constraints/changelog.yml
   - include:
       file: db/static/changelog.yml

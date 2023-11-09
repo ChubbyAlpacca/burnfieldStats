@@ -1,0 +1,52 @@
+components:
+  schemas:
+
+    ConstructorsMetaData:
+      type: object
+      properties:
+        year:
+          type: integer
+          example: "2021"
+          description : "Year provided in the search parameters"
+          required: false
+        round:
+          type: integer
+          example: "4"
+          description: "Round provided in the search parameters"
+          required: false
+        limit:
+          type: integer
+          example: "20"
+          description: "Maximum limit for results per page"
+          required: false
+        page:
+          type: integer
+          example: "1"
+          description: "Page requested from paginated data"
+          required: false
+
+    ConstructorResponse:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Mclaren"
+          description : "Name of the constructor"
+        nationality:
+          type: string
+          example: "UK"
+          description: "Where the constructor is based"
+        url:
+          type: string
+          example: "https://www.wikipedia.com/mclaren"
+          description: "Link to the wikipedia page for the constructor"
+
+    ConstructorsResponse:
+      type: object
+      properties:
+        metaData:
+          $ref: "./components/schema/ConstructorsMetaData"
+
+
+
+  

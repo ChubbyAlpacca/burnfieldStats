@@ -4,6 +4,7 @@ import com.burnfield.burnfieldstats.controller.circuits.dto.CircuitResponse;
 import com.burnfield.burnfieldstats.controller.circuits.dto.Location;
 import com.burnfield.burnfieldstats.entity.Circuit;
 import com.burnfield.burnfieldstats.repository.CircuitRepository;
+import com.burnfield.burnfieldstats.repository.RacesRepository;
 import com.burnfield.burnfieldstats.service.CircuitService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ import java.util.List;
 public class CircuitServiceImpl implements CircuitService {
 
     private final CircuitRepository circuitRepository;
+
     @Override
     public List<CircuitResponse> getCircuitByCountry(String country) {
         var circuitList = circuitRepository.findCircuitsByCountry(country);

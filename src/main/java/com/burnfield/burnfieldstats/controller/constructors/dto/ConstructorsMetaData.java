@@ -5,16 +5,22 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-import java.util.List;
+import java.util.Optional;
 
 @Data
 @AllArgsConstructor
 @Builder
 @JsonInclude(value = JsonInclude.Include.NON_EMPTY, content = JsonInclude.Include.NON_NULL)
-public class ConstructorsResponse {
+public class ConstructorsMetaData {
 
-    //TODO add metadata with pagination
-    ConstructorsMetaData metaData;
+    private Optional<Integer> year;
 
-    List<ConstructorResponse> constructors;
+    private Optional<Integer> round;
+
+    private Optional<Integer> page;
+
+    private Optional<Integer> limit;
+
+    private Optional<Integer> totalSize;
+
 }

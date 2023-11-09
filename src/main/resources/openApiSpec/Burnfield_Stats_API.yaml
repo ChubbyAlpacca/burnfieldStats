@@ -1,0 +1,28 @@
+openapi: 3.0.3
+info:
+  title: Burnfield Stats
+  description: Use historical Formula 1 data to power your apps!
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:8080'
+    description: "Your own local environment"
+paths:
+  /constructors:
+    get:
+      summary: get all constructors
+      description: Recieves a paginated list of constructors
+      operationId: getConstructors
+      tags:
+        - constructors
+      parameters:
+        - some
+        - thing
+      responses:
+        "200":
+          description: succesfull
+          content:
+            application/json:
+              schema:
+                $ref: "./Constructors_API.yaml#/components/schemas/ConstructorResponse"
+
+
