@@ -14,6 +14,7 @@ public interface ConstructorService {
 
     ConstructorsResponse getConstructorsByRoundAndYear(Optional<Integer> round, int year);
 
+    //possibly deprecatable
     ConstructorsResponse getConstructorsByYear(int year);
 
 
