@@ -1,6 +1,8 @@
 package com.burnfield.burnfieldstats.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -11,6 +13,8 @@ import java.time.LocalDate;
 @Table(name = "DRIVERS")
 @RequiredArgsConstructor
 @Getter
+@Builder
+@AllArgsConstructor
 public class Driver {
 
     @Id

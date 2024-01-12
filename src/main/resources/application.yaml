@@ -17,6 +17,9 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
+#        ** only uncomment for debugging purposes **
+#        format_sql: true
+#    show-sql: true
 springdoc:
   swagger-ui:
     display-request-duration: true
